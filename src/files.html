@@ -1,0 +1,111 @@
+<!--
+ * @Author: luobochuanqi
+ * @Date: 2021-08-11 23:07:09
+ * @LastEditTime: 2021-08-11 23:55:46
+ * @FilePath: \luoboplus\src\files.html
+-->
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilesReader</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <!-- <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
+</head>
+<style>
+    .enter {
+        width: 100px;
+        height: 30px;
+        /* line-height: 42px; */
+        background: #0D6;
+        /* width: 158px; */
+        border: 1px solid #0D6;
+        overflow: hidden;
+        transition: all 0.5s;
+        opacity: 1;
+    }
+
+    .enter:hover, .enter:active {
+        text-decoration: none;
+        color: #0C5;
+        border-color: #0C5;
+        background: #FFF;
+    }
+
+    .enter:active {
+        opacity: .8;
+    }
+
+    .enter span {
+        display: inline-block;
+        position: relative;
+        padding-right: 0;
+        transition: padding-right 0.5s;
+    }
+
+    .enter span:after {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        right: -18px;
+        opacity: 0;
+        width: 10px;
+        height: 10px;
+        margin-top: -10px;
+        background: rgba(0, 0, 0, 0);
+        border: 2px solid #FFF;
+        border-top: none;
+        border-right: none;
+        transition: opacity 0.5s, top 0.5s, right 0.5s;
+        transform: rotate(-140deg);
+    }
+
+    .enter:hover span, .enter:active span {
+        padding-right: 30px;
+    }
+
+    .enter:hover span:after, .enter:active span:after {
+        transition: opacity 0.5s, top 0.5s, right 0.5s;
+        opacity: 1;
+        border-color: #0C5;
+        right: 0;
+        top: calc(50% + 2.5px);
+        transform: rotate(-140deg);
+    }
+</style>
+<body>
+    <div id="list"></div>
+</body>
+<script src="./js/reader.js"></script>
+<script>
+    var path = require("path");
+    var fs = require("fs");
+    const internal = require("stream");
+    Vue.createApp({
+        data() {
+            return {
+                inputValue: '',  
+                list: []   
+            }
+        },
+        methods: {
+            handleAddItem() {
+                this.list.push(this.inputValue)
+                this.inputValue = ''
+            }
+        },
+        template: `
+            <div>
+                <input v-model="inputValue" />
+                <button class='enter' v-on:click="handleAddItem"><span>添加</span></button>
+                <ul>
+                    <li v-for="(item,index) of list">[{{index}}]{{item}}</li>
+                </ul>
+            </div>
+        `
+    }).mount("#list")
+</script>
+</html>

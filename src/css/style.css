@@ -1,0 +1,125 @@
+.mainBody {
+    overflow: hidden;
+    background-image: 'src/image/bg-main.jpg'
+}
+
+.over_ul {
+    list-style-type: none;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    top: -9px;
+    right: -9px;
+    -webkit-app-region: drag;
+    /* background-color: #333; */
+}
+
+.over_ul li {
+    float: right;
+}
+  
+.over_ul li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.mainTitle {
+    padding: 5x;
+    text-align: center;
+}
+
+/* .mainBody {
+    background: url(../image/bg-main.jpg) no-repeat center;
+} */
+
+.closeBtn {
+    /* vertical-align: top; */
+    height: 34px;
+    line-height: 30px;
+    width: 50px;
+    color: black;
+    background-color: white;
+    border: 1px solid #ffffff;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    /* top: -5px; */
+    opacity: 1;
+    /* overflow: hidden; */
+    padding: -10px -10px -10px;
+}
+
+.closeBtn:before {
+    content: "";
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 3em;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -4.5em;
+    transform: skewX(-45deg) translateX(0);
+    transition: none;
+}
+
+.closeBtn:hover {
+    background-color: red;
+    color: rgb(255, 255, 255);
+}
+
+.closeBtn:hover:before {
+    transform: skewX(-45deg) translateX(260px);
+    transition: all 0.5s ease-in-out;
+}
+
+.closeBtn:active {
+    opacity: .8;
+    background-color: rgb(197, 17, 17);
+}
+
+.minBtn,.maxBtn {
+    vertical-align: top;
+    height: 34px;
+    line-height: 30px;
+    width: 50px;
+    color: black;
+    background-color: white;
+    border: 1px solid #ffffff;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    /* top: -5px; */
+    opacity: 1;
+    overflow: hidden;
+}
+
+.minBtn:before,.maxBtn:before {
+    content: "";
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 3em;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -4.5em;
+    transform: skewX(-45deg) translateX(0);
+    transition: none;
+}
+
+.minBtn:hover,.maxBtn:hover {
+    background-color: rgb(228, 228, 228);
+    color: rgb(255, 255, 255);
+}
+
+.minBtn:hover:before,.maxBtn:hover:before {
+    transform: skewX(-45deg) translateX(260px);
+    transition: all 0.5s ease-in-out;
+}
+
+.minBtn:active,.maxBtn:active {
+    opacity: .8;
+    background-color: rgb(197, 17, 17);
+}
